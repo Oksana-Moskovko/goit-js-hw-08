@@ -71,7 +71,7 @@ const gallery = document.querySelector(".gallery");
     <img
       class="gallery-image"
       src="${img.preview}"
-      data-source="large-image.jpg"
+      data-source="${img.original}"
       alt="${img.description}"
     />
   </a>
@@ -80,3 +80,17 @@ const gallery = document.querySelector(".gallery");
 console.log(markup);
 
 gallery.innerHTML = markup;
+
+gallery.addEventListener('click', function (event) {
+  event.preventDefault();
+    
+  if (event.target.nodeName === 'IMG') {
+    const largeImageURL = event.target.dataset.source;
+
+    const instance = basicLightbox.create(`
+        <img src="${largeImageURL}">
+        `);
+      
+    instance.show();
+  }
+});

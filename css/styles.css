@@ -58,3 +58,11 @@ a {
 .gallery-item {
     width: 360px;
 }
+
+.gallery-image {
+    transition: transform 250ms ease-in-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
